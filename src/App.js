@@ -3,20 +3,13 @@ import React from 'react';
 const PortfolioWebsite = () => {
   return (
     <div className="min-h-screen bg-[#1E1B2E] text-white">
-      <header className="py-8">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <img src="/api/placeholder/40/40" alt="Profile" className="rounded-full mr-2" />
-            <h1 className="text-xl font-bold">I'm a Software Engineer!</h1>
-          </div>
-          <nav>
-            <ul className="flex space-x-4">
-              <li>Home</li>
-              <li>Work Experience</li>
-              <li>Skills</li>
-              <li>Projects</li>
-            </ul>
-          </nav>
+      <header className="py-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <img src="/api/placeholder/200/200" alt="Profile" className="rounded-full w-48 h-48 mb-6" />
+          <h1 className="text-4xl font-bold mb-2">I'm a Software Engineer!</h1>
+          <p className="text-lg text-gray-400">
+            A passionate software engineer with expertise in building robust, scalable applications.
+          </p>
         </div>
       </header>
 
