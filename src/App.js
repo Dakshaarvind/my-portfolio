@@ -204,7 +204,12 @@ const PortfolioWebsite = () => {
                       <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
                         AI Chess Bot
                       </h3>
-                      <a href="#" className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300">
+                      <a 
+                        href="https://ai-chess-bot-dakshas-projects-bfd2c021.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
+                      >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -223,6 +228,114 @@ const PortfolioWebsite = () => {
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {['TypeScript', 'Plotly', 'Angular', 'REST API', 'Stockfish'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* LensMingle Project */}
+            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Project Image/Preview */}
+                <div className="md:w-1/2 relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                  <img 
+                    src="/Lensminglepic3.png" 
+                    alt="LensMingle Interface" 
+                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
+                  />
+                  {/* Decorative elements */}
+                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                </div>
+
+                {/* Project Details */}
+                <div className="md:w-1/2 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
+                        LensMingle
+                      </h3>
+                      <a 
+                        href="https://devpost.com/software/lensmingle-app" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      <span className="text-sm text-gray-400">April 2024</span>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-6 leading-relaxed">
+                      Your Gateway to Perfect Photography Partnerships! 
+                      Connect with talented photographers or find your ideal clients. A smart recommendation engine pairs you 
+                      with the perfect match based on style, budget, and vision. Get ready to transform 
+                      the way you connect in the photography world! 
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2">
+                      {['React', 'Python', 'SKLearn', 'XGBoost', 'Flask', 'Websockets', 'Node.js'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* PharmaTech Project */}
+            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Project Image/Preview */}
+                <div className="md:w-1/2 relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                  <img 
+                    src="/pharmatech.png" 
+                    alt="PharmaTech Interface" 
+                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
+                  />
+                  {/* Decorative elements */}
+                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                </div>
+
+                {/* Project Details */}
+                <div className="md:w-1/2 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
+                        PharmaTech
+                      </h3>
+                      <span className="text-sm text-gray-400">January 2023</span>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-6 leading-relaxed">
+                      A modern pharmacy management solution!
+                      Never miss a prescription pickup with this intelligent notification system. Experience seamless 
+                      inventory tracking and real-time updates. Stay connected through SMS and email alerts for 
+                      exceptional pharmaceutical care.
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2">
+                      {['Twilio API', 'MySQL', 'React', 'Flask', 'Jenkins', 'SendGrid API'].map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
