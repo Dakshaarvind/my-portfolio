@@ -113,16 +113,51 @@ const PortfolioWebsite = () => {
         </header>
 
         <main className="max-w-4xl mx-auto py-8">
-          <section id="experience" className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">Work Experience</h2>
-            <div className="flex justify-between">
-              <div className="bg-[#2E2A47] p-4 rounded-lg shadow-md flex-1 mr-4">
-                <h3 className="text-xl font-bold">See what I've done</h3>
-                <p className="text-gray-400">Tap to view details</p>
+          <section id="experience" className="mb-16">
+            <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+              {/* Header with date and title */}
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-gray-400">2024 — PRESENT</span>
+                <div className="text-right">
+                  <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
+                    Software Engineer Intern{' '}
+                    <span className="inline-block">
+                      · Kalpavruksha Inc{' '}
+                      <svg
+                        className="inline-block w-4 h-4 mb-1 ml-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </span>
+                  </h3>
+                  <p className="text-gray-400 text-sm">Bangalore, India</p>
+                </div>
               </div>
-              <div className="bg-[#2E2A47] p-4 rounded-lg shadow-md flex-1">
-                <h3 className="text-xl font-bold">See my skills</h3>
-                <p className="text-gray-400">Tap to view details</p>
+
+              {/* Description */}
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Built a full-stack feature using React.js and Express.js that dynamically generated reports from MongoDB, improving data retrieval speed by 40%. Engineered a microservice architecture using Kafka for message brokering and event-driven communication, enabling real-time notifications and processing over 50,000 events daily. Refactored legacy API endpoints into GraphQL resolvers, improving data retrieval efficiency by 33% and minimizing over-fetching of client data.
+              </p>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-2">
+                {['React.js', 'Express.js', 'MongoDB', 'Kafka', 'GraphQL', 'Docker', 'Jenkins', 'Redis'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </section>
