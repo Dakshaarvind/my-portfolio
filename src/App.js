@@ -188,7 +188,7 @@ const PortfolioWebsite = () => {
                 <div className="md:w-1/2 relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
                   <img 
-                    src="/chess-bot.webp" 
+                    src="/chesspic1.png" 
                     alt="AI Chess Bot Interface" 
                     className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
                   />
