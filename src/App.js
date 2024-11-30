@@ -351,12 +351,17 @@ const PortfolioWebsite = () => {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="mb-24">
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
-              Contact
-            </h2>
-            <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
-              <p className="text-gray-300 mb-6">Let's get in touch!</p>
+          <section id="contact" className="mb-24 px-4 md:px-8">
+            <div className= "max-w-4xl mx-auto"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
+                Get In Touch
+              </h2>
+            <div className="bg-[#0D1117]/50 rounded-2xl p-8 md:p-12 hover:bg-[#0D1117]/70 transition-all duration-300 border border-2 border-[#30363D]/50 hover:border-[#4DD0E1]/50 shadow-xl hover:shadow-2xl group">
+              <div className="flex flex-col items-center space-y-6"></div>
+                <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-6">
+                  I'm always open to exciting opportunities, collaborations, or just a friendly chat. Feel free to reach out!
+                </p>
+
               <div className="flex justify-center gap-6">
                 <a 
                   href="https://www.linkedin.com/in/daksha-arvind-4260bb221/" 
@@ -394,7 +399,7 @@ const PortfolioWebsite = () => {
         </main>
 
         <footer className="bg-[#0D1117] py-4 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Daksha Arvind. All rights reserved.</p>
         </footer>
       </div>
     </div>
