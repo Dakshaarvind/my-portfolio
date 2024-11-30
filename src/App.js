@@ -359,7 +359,7 @@ const PortfolioWebsite = () => {
               <p className="text-gray-300 mb-6">Let's get in touch!</p>
               <div className="flex justify-center gap-6">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/daksha-arvind-4260bb221/" 
                   className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -374,7 +374,7 @@ const PortfolioWebsite = () => {
                   </svg>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://github.com/Dakshaarvind" 
                   className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
