@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import './App.css';
 const PortfolioWebsite = () => {
   useEffect(() => {
     const links = document.querySelectorAll('nav a[href^="#"]');
@@ -64,10 +64,10 @@ const PortfolioWebsite = () => {
           </div>
         </div>
 
-        <header id="home" className="py-16 relative">
+        <header id="home" className="py-16 relative animate-bounce-in-left">
           <div className="max-w-4xl mx-auto flex items-center gap-8">
             {/* Image container with interactive effects */}
-            <div className="relative group">
+            <div className="relative group animate-scale-up">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 animate-tilt"></div>
               <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur-lg opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:scale-105"></div>
               <img 
@@ -112,15 +112,15 @@ const PortfolioWebsite = () => {
           </div>
         </header>
 
-        <main className="max-w-4xl mx-auto py-8">
+        <main className="max-w-4xl mx-auto py-8 fade-in">
           {/* Experience Section Title */}
-          <section id="experience" className="mb-24">
+          <section id="experience" className="mb-24 animate-bounce-in-left">
             <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
               Experience
             </h2>
             <div className="space-y-8">
               {/* First Experience */}
-              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-gray-400">2024</span>
                   <div className="text-right">
@@ -148,7 +148,7 @@ const PortfolioWebsite = () => {
               </div>
 
               {/* Second Experience */}
-              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-gray-400">2024</span>
                   <div className="text-right">
@@ -178,11 +178,11 @@ const PortfolioWebsite = () => {
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="mb-24">
+          <section id="projects" className="mb-24 animate-bounce-in-left">
             <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
               Projects
             </h2>
-            <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+            <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
               <div className="flex flex-col md:flex-row gap-8">
                 {/* Project Image/Preview */}
                 <div className="md:w-1/2 relative group">
@@ -242,7 +242,7 @@ const PortfolioWebsite = () => {
             </div>
 
             {/* LensMingle Project */}
-            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
               <div className="flex flex-col md:flex-row gap-8">
                 {/* Project Image/Preview */}
                 <div className="md:w-1/2 relative group">
@@ -301,7 +301,7 @@ const PortfolioWebsite = () => {
             </div>
 
             {/* PharmaTech Project */}
-            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group">
+            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
               <div className="flex flex-col md:flex-row gap-8">
                 {/* Project Image/Preview */}
                 <div className="md:w-1/2 relative group">
@@ -351,12 +351,12 @@ const PortfolioWebsite = () => {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="mb-24 px-4 md:px-8">
-            <div className= "max-w-4xl mx-auto"></div>
+          <section id="contact" className="mb-24 px-4 md:px-8 animate-bounce-in-left">
+            <div className="max-w-4xl mx-auto"></div>
               <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
                 Get In Touch
               </h2>
-            <div className="bg-[#0D1117]/50 rounded-2xl p-8 md:p-12 hover:bg-[#0D1117]/70 transition-all duration-300 border border-2 border-[#30363D]/50 hover:border-[#4DD0E1]/50 shadow-xl hover:shadow-2xl group">
+            <div className="bg-[#0D1117]/50 rounded-2xl p-8 md:p-12 hover:bg-[#0D1117]/70 transition-all duration-300 border border-2 border-[#30363D]/50 hover:border-[#4DD0E1]/50 shadow-xl hover:shadow-2xl group animate-fade-in">
               <div className="flex flex-col items-center space-y-6"></div>
                 <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-6">
                   I'm always open to exciting opportunities, collaborations, or just a friendly chat. Feel free to reach out!
