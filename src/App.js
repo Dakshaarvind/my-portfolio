@@ -122,6 +122,34 @@ const PortfolioWebsite = () => {
               {/* First Experience */}
               <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
+                  <span className="text-gray-400">2025</span>
+                  <div className="text-right">
+                    <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
+                      Software Engineer Intern · SuperWorld
+                    </h3>
+                    <p className="text-gray-400 text-sm">Sunnyvale, California</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                Engineered a seamless AR experience sharing feature using the React Native Share API, enabling smooth P2P content sharing. Additionally, built a React Native test device manager integrated with Firebase Firestore, streamlining QA workflows by allowing quick device switching and improving testing efficiency.
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {['React Native Share API', 'QA', 'Firebase Firestore'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* First Experience */}
+              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+                <div className="flex justify-between items-start mb-6">
                   <span className="text-gray-400">2024</span>
                   <div className="text-right">
                     <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
