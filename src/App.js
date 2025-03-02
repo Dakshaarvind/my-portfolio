@@ -422,6 +422,15 @@ const PortfolioWebsite = () => {
                   </svg>
                 </a>
               </div>
+              <div className="mt-6 text-center">
+                <a 
+                  href="mailto:dakshabarvind@gmail.com" 
+                  className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300 text-lg font-semibold"
+                >
+                  dakshabarvind@gmail.com
+                </a>
+              </div>
+              
             </div>
           </section>
         </main>
