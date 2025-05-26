@@ -125,15 +125,12 @@ const PortfolioWebsite = () => {
                   <span className="text-gray-400">2025</span>
                   <div className="text-right">
                     <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
-                      Software Engineer Intern · SuperWorld
+                      Web & Tech Manager · Beach Media
                     </h3>
-                    <p className="text-gray-400 text-sm">Sunnyvale, California</p>
+                    <p className="text-gray-400 text-sm">Long Beach, California</p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                Engineered a seamless AR experience sharing feature using the React Native Share API, enabling smooth P2P content sharing. Additionally, built a React Native test device manager integrated with Firebase Firestore, streamlining QA workflows by allowing quick device switching and improving testing efficiency.
-                </p>
 
                 <div className="flex flex-wrap gap-2">
                   {['React Native Share API', 'QA', 'Firebase Firestore'].map((tech) => (
