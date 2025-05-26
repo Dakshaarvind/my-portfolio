@@ -132,19 +132,10 @@ const PortfolioWebsite = () => {
                 </div>
 
 
-                <div className="flex flex-wrap gap-2">
-                  {['React Native Share API', 'QA', 'Firebase Firestore'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                
               </div>
               
-              {/* First Experience */}
+              {/*  Experience */}
               <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-gray-400">2024</span>
