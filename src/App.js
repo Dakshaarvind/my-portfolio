@@ -153,7 +153,7 @@ const PortfolioWebsite = () => {
           <div className="max-w-4xl mx-auto flex items-center gap-8 px-4">
             {/* Profile Image with cute effects */}
             <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
               <div className="relative">
                 <img 
                   src="/Screenshot 2025-05-29 160937.png" 
@@ -181,7 +181,8 @@ const PortfolioWebsite = () => {
                 Hi, I'm Daksha! ✨
               </h1>
               <p className="text-lg text-gray-600">
-                Specializing in building robust, scalable applications with a touch of magic! 🌟
+                I craft engaging digital experiences that blend creativity with clean, functional code.
+                I'm constantly learning & building with a focus on impact, design, and security.🌟
               </p>
               
               {/* Cute call to action */}
