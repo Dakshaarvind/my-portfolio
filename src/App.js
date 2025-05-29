@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+
 const PortfolioWebsite = () => {
+  const [sparkles, setSparkles] = useState([]);
+
   useEffect(() => {
     const links = document.querySelectorAll('nav a[href^="#"]');
     
@@ -16,146 +18,240 @@ const PortfolioWebsite = () => {
         });
       });
     });
+
+    // Generate sparkles
+    const generateSparkles = () => {
+      const newSparkles = [];
+      for (let i = 0; i < 20; i++) {
+        newSparkles.push({
+          id: i,
+          left: Math.random() * 100,
+          top: Math.random() * 100,
+          delay: Math.random() * 3,
+          size: Math.random() * 8 + 4
+        });
+      }
+      setSparkles(newSparkles);
+    };
+
+    generateSparkles();
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0D1117] to-[#1B2432] text-white relative overflow-hidden">
-      {/* Navigation Dashboard */}
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 bg-[#0D1117]/90 backdrop-blur-md z-50 rounded-full px-16 py-3 border border-[#4DD0E1]/20 shadow-lg shadow-[#4DD0E1]/10">
-        <div className="flex items-center gap-10">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-pink-200 text-gray-800 relative overflow-hidden">
+      {/* Custom Styles */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes bounce-cute {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes wiggle {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(1deg); }
+          75% { transform: rotate(-1deg); }
+        }
+        
+        @keyframes sparkle {
+          0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+          50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        
+        @keyframes heart-beat {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+        }
+        
+        @keyframes rainbow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        .float { animation: float 3s ease-in-out infinite; }
+        .bounce-cute { animation: bounce-cute 2s ease-in-out infinite; }
+        .wiggle { animation: wiggle 1s ease-in-out infinite; }
+        .sparkle { animation: sparkle 2s ease-in-out infinite; }
+        .heart-beat { animation: heart-beat 1.5s ease-in-out infinite; }
+        .rainbow-bg { 
+          background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+          background-size: 400% 400%;
+          animation: rainbow 4s ease infinite;
+        }
+        
+        .hover-bounce:hover {
+          animation: bounce-cute 0.6s ease-in-out;
+        }
+      `}</style>
+
+      {/* Floating sparkles */}
+      {sparkles.map(sparkle => (
+        <div
+          key={sparkle.id}
+          className="absolute pointer-events-none"
+          style={{
+            left: `${sparkle.left}%`,
+            top: `${sparkle.top}%`,
+            animationDelay: `${sparkle.delay}s`
+          }}
+        >
+          <div 
+            className="sparkle text-pink-400"
+            style={{ fontSize: `${sparkle.size}px` }}
+          >
+            ✨
+          </div>
+        </div>
+      ))}
+
+      {/* Cute floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 text-6xl float text-pink-300">🌸</div>
+        <div className="absolute top-40 right-20 text-4xl bounce-cute text-purple-300">💖</div>
+        <div className="absolute bottom-20 left-20 text-5xl wiggle text-pink-400">🦋</div>
+        <div className="absolute bottom-40 right-10 text-3xl float text-purple-400">⭐</div>
+        <div className="absolute top-1/3 left-1/4 text-2xl heart-beat text-pink-500">💕</div>
+        <div className="absolute top-2/3 right-1/4 text-4xl bounce-cute text-purple-500">🌙</div>
+        
+        
+        {/* Floating hearts */}
+        <div className="absolute top-10 right-1/3 text-pink-400 animate-pulse">💗</div>
+        <div className="absolute bottom-10 left-1/3 text-purple-400 animate-bounce">💜</div>
+      </div>
+
+      {/* Navigation with cute styling */}
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-lg z-50 rounded-full px-8 py-3 border-2 border-pink-200 shadow-lg shadow-pink-200/50">
+        <div className="flex items-center gap-8">
           {[
-            { name: 'Home', href: '#home' },
-            { name: 'Experience', href: '#experience' },
-            { name: 'Projects', href: '#projects' },
-            { name: 'Contact', href: '#contact' }
+            { name: '🏠 Home', href: '#home' },
+            { name: '💼 Experience', href: '#experience' },
+            { name: '🎨 Projects', href: '#projects' },
+            { name: '💌 Contact', href: '#contact' }
           ].map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="relative group py-2"
+              className="relative group py-2 px-4 rounded-full hover:bg-pink-100 transition-all duration-300 hover-bounce"
             >
-              <span className="text-gray-300 hover:text-white transition-colors duration-300 bg-gradient-to-r from-[#4DD0E1] via-[#64FFDA] to-[#4DD0E1] bg-clip-text hover:text-transparent bg-size-200 hover:animate-gradient font-bold">
+              <span className="text-gray-700 hover:text-pink-600 transition-colors duration-300 font-semibold">
                 {item.name}
               </span>
-              {/* Animated underline */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </div>
       </nav>
 
-      {/* Add padding to account for fixed navbar */}
-      <div className="pt-16">
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#4DD0E1]/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#64FFDA]/10 rounded-full blur-3xl animate-float-delay"></div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-40 right-20 w-20 h-20 border-2 border-[#4DD0E1]/30 rounded-lg animate-spin-slow"></div>
-          <div className="absolute bottom-40 left-20 w-16 h-16 bg-[#64FFDA]/20 rotate-45 animate-bounce-slow"></div>
-          <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-yellow-500 rounded-full animate-ping"></div>
-          <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-green-500 rounded-full animate-ping delay-700"></div>
-          
-          {/* Animated lines */}
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute left-[20%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-purple-500/20 to-transparent animate-scan"></div>
-            <div className="absolute left-[80%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-blue-500/20 to-transparent animate-scan delay-1000"></div>
-          </div>
-        </div>
-
-        <header id="home" className="py-16 relative animate-bounce-in-left">
-          <div className="max-w-4xl mx-auto flex items-center gap-8">
-            {/* Image container with interactive effects */}
-            <div className="relative group animate-scale-up">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 animate-tilt"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur-lg opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:scale-105"></div>
-              <img 
-                src="/portfpic1.webp" 
-                alt="Profile" 
-                className="relative w-72 h-auto object-cover rounded-lg shadow-xl hover:scale-[1.02] transition-all duration-300 group-hover:shadow-2xl shadow-purple-500/20" 
-              />
-              
-              {/* Corner accents */}
-              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+      <div className="pt-20">
+        {/* Hero Section */}
+        <header id="home" className="py-16 relative">
+          <div className="max-w-4xl mx-auto flex items-center gap-8 px-4">
+            {/* Profile Image with cute effects */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+              <div className="relative">
+                <img 
+                  src="/Screenshot 2025-05-29 160937.png" 
+                  alt="Profile" 
+                  className="relative w-72 h-72 object-cover rounded-full shadow-2xl border-4 border-white hover:scale-105 transition-all duration-300 float" 
+                />
+                {/* Cute decorative elements around image */}
+                <div className="absolute -top-4 -right-4 text-3xl bounce-cute">🌟</div>
+                <div className="absolute -bottom-4 -left-4 text-2xl wiggle">🎈</div>
+              </div>
             </div>
 
             <div className="text-left">
-              {/* Animated dots with trails */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce">
-                    <div className="absolute w-full h-full bg-purple-500 rounded-full animate-ping opacity-20"></div>
-                  </div>
-                </div>
-                <div className="relative">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce delay-100">
-                    <div className="absolute w-full h-full bg-blue-500 rounded-full animate-ping opacity-20 delay-100"></div>
-                  </div>
-                </div>
-                <div className="relative">
-                  <div className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce delay-200">
-                    <div className="absolute w-full h-full bg-indigo-500 rounded-full animate-ping opacity-20 delay-200"></div>
-                  </div>
+              {/* Cute animated greeting */}
+              <div className="flex items-center gap-2 mb-6">
+                
+                <div className="flex gap-1">
+                  <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce"></div>
+                  <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                  <div className="w-3 h-3 bg-pink-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                 </div>
               </div>
 
-              <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#4DD0E1] via-[#64FFDA] to-[#4DD0E1] bg-clip-text text-transparent bg-size-200 animate-gradient">
-                Hi, I'm Daksha!
+              <h1 className="text-5xl font-bold mb-4 text-pink-500">
+                Hi, I'm Daksha! ✨
               </h1>
-              <p className="text-lg text-gray-400 hover:text-gray-300 transition-colors duration-300">
-                A creative software engineer with a passion for innovation,
-                specializing in building robust, scalable applications.
+              <p className="text-lg text-gray-600">
+                Specializing in building robust, scalable applications with a touch of magic! 🌟
               </p>
+              
+              {/* Cute call to action */}
+              <div className="mt-6 flex items-center gap-2">
+                <span className="text-pink-500 font-semibold">Let's create something amazing together!</span>
+                <span className="text-2xl bounce-cute">🚀</span>
+              </div>
             </div>
           </div>
         </header>
 
-        <main className="max-w-4xl mx-auto py-8 fade-in">
-          {/* Experience Section Title */}
-          <section id="experience" className="mb-24 animate-bounce-in-left">
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
-              Experience
-            </h2>
+        <main className="max-w-4xl mx-auto py-8 px-4">
+          {/* Experience Section */}
+          <section id="experience" className="mb-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4 rainbow-bg bg-clip-text text-transparent">
+                Experience ✨
+              </h2>
+              <div className="flex justify-center gap-2">
+                <span className="text-2xl bounce-cute">💼</span>
+                <span className="text-2xl wiggle">🌟</span>
+                <span className="text-2xl heart-beat">💖</span>
+              </div>
+            </div>
+            
             <div className="space-y-8">
-              {/* First Experience */}
-              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+              {/* Beach Media Experience */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-gray-400">2025</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🏖️</span>
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
+                  </div>
                   <div className="text-right">
-                    <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
-                      Web & Tech Manager · Beach Media
+                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                      Web & Tech Manager · Beach Media 🌊
                     </h3>
-                    <p className="text-gray-400 text-sm">Long Beach, California</p>
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                      <span>📍</span> Long Beach, California
+                    </p>
                   </div>
                 </div>
-
-
-                
               </div>
               
-              {/*  Experience */}
-              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+              {/* Kalpavruksha Experience */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-gray-400">2024</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🌳</span>
+                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full">2024</span>
+                  </div>
                   <div className="text-right">
-                    <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
-                      Software Engineer Intern · Kalpavruksha Inc
+                    <h3 className="text-purple-600 text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
+                      Software Engineer Intern · Kalpavruksha Inc 💻
                     </h3>
-                    <p className="text-gray-400 text-sm">Bangalore, India</p>
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                      <span>📍</span> Bangalore, India
+                    </p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience. Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness. Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges. Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance.
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  Developed a dynamic reporting system that streamlined data processing ✨ Architected scalable microservices for real-time notifications 🚀 Refactored API endpoints for optimal performance 💪 Focused on backend optimization for better scalability! 📈
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {['React.js', 'Express.js', 'MongoDB', 'Kafka', 'GraphQL', 'Docker', 'Jenkins', 'Redis'].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                      className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
                     >
                       {tech}
                     </span>
@@ -163,27 +259,32 @@ const PortfolioWebsite = () => {
                 </div>
               </div>
 
-              {/* Experience */}
-              <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+              {/* Women in Computing Experience */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-gray-400">2024</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">👩‍💻</span>
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2024</span>
+                  </div>
                   <div className="text-right">
-                    <h3 className="text-[#4DD0E1] text-xl font-semibold group-hover:text-[#64FFDA] transition-colors duration-300">
-                      Event Coordinator · Women in Computing
+                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                      Event Coordinator · Women in Computing 🌟
                     </h3>
-                    <p className="text-gray-400 text-sm">Long Beach, California</p>
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                      <span>📍</span> Long Beach, California
+                    </p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  Contributed to outreach initiatives by volunteering for K-12 computer science tutoring programs, helping high school students explore technology and programming. Organized and managed volunteer teams for large-scale programming events, ensuring seamless coordination and participant engagement. Hosted guest speaker events featuring industry professionals, fostering opportunities for learning and networking within the community.
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  Contributed to K-12 computer science tutoring programs 📚 Organized programming events with amazing volunteer teams 🎉 Hosted inspiring guest speaker events 🎤 Building community and empowering the next generation! 💕
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {['Event Planning', 'Team Leadership', 'Community Outreach', 'Education', 'Volunteer Management'].map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-pink-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
                     >
                       {skill}
                     </span>
@@ -194,59 +295,62 @@ const PortfolioWebsite = () => {
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="mb-24 animate-bounce-in-left">
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
-              Projects
-            </h2>
-            <div className="bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+          <section id="projects" className="mb-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4 rainbow-bg bg-clip-text text-transparent">
+                Projects 🎨
+              </h2>
+              <div className="flex justify-center gap-2">
+                <span className="text-2xl bounce-cute">🎯</span>
+                <span className="text-2xl wiggle">💡</span>
+                <span className="text-2xl heart-beat">🚀</span>
+              </div>
+            </div>
+            
+            {/* AI Chess Bot */}
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 mb-8 hover-bounce">
               <div className="flex flex-col md:flex-row gap-8">
-                {/* Project Image/Preview */}
-                <div className="md:w-1/2 relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                <div className="md:w-1/2 relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-pink-300 to-purple-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
                   <img 
                     src="/chesspic1.png" 
                     alt="AI Chess Bot Interface" 
-                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
+                    className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
                   />
-                  {/* Decorative elements */}
-                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute -top-3 -right-3 text-3xl bounce-cute">♟️</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">🧠</div>
                 </div>
-
-                {/* Project Details */}
+                
                 <div className="md:w-1/2 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
-                        AI Chess Bot
+                      <h3 className="text-2xl font-bold text-pink-600 group-hover:text-purple-600 transition-colors duration-300">
+                        AI Chess Bot ♟️
                       </h3>
                       <a 
                         href="https://ai-chess-bot-dakshas-projects-bfd2c021.vercel.app/" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
+                        className="text-pink-500 hover:text-purple-500 transition-colors duration-300 hover-bounce"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
+                        <span className="text-2xl">🔗</span>
                       </a>
-                      <span className="text-sm text-gray-400">June 2024</span>
+                      <span className="text-sm text-gray-600 bg-pink-100 px-3 py-1 rounded-full">
+                        June 2024 🌸
+                      </span>
                     </div>
                     
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      Experience chess like never before with the AI-powered chess companion. 
-                      Featuring real-time analysis, instant move suggestions, and an adaptive 
-                      learning system that grows with you. Whether you're a beginner or a 
-                      seasoned player, elevate your game with professional-grade insights 
-                      and lightning-fast responses.
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      Experience chess like never before with my AI-powered companion! ✨ 
+                      Features real-time analysis, instant move suggestions, and adaptive learning 🧠 
+                      Perfect for beginners and seasoned players alike! 🏆
                     </p>
 
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {['TypeScript', 'Plotly', 'Angular', 'REST API', 'Stockfish'].map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                          className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
                         >
                           {tech}
                         </span>
@@ -256,111 +360,51 @@ const PortfolioWebsite = () => {
                 </div>
               </div>
             </div>
-            {/* StartNow Project */}
-            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
-              <div className="flex flex-col md:flex-row gap-8">
-                {/* Project Image/Preview */}
-                <div className="md:w-1/2 relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
-                  <img 
-                    src="/Screenshot 2025-05-25 215311.png" 
-                    alt="StartNow Interface" 
-                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
-                  />
-                  {/* Decorative elements */}
-                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                </div>
-
-                {/* Project Details */}
-                <div className="md:w-1/2 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
-                        StartNow
-                      </h3>
-                      <a 
-                        href="https://devpost.com/software/startnow" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                      <span className="text-sm text-gray-400">April 2024</span>
-                    </div>
-                    
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      Pitch your startup idea and watch your agentic board brainstorm. Featuring the Unpaid Intern, CTO, etc… all working hard to give you infinite possibilities on what steps to take next.
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {['Uagents'].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            
             {/* LensMingle Project */}
-            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 mb-8 hover-bounce">
               <div className="flex flex-col md:flex-row gap-8">
-                {/* Project Image/Preview */}
-                <div className="md:w-1/2 relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                <div className="md:w-1/2 relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-300 to-pink-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
                   <img 
                     src="/Lensminglepic3.png" 
                     alt="LensMingle Interface" 
-                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
+                    className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
                   />
-                  {/* Decorative elements */}
-                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute -top-3 -right-3 text-3xl bounce-cute">📸</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">💕</div>
                 </div>
 
-                {/* Project Details */}
                 <div className="md:w-1/2 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
-                        LensMingle
+                      <h3 className="text-2xl font-bold text-purple-600 group-hover:text-pink-600 transition-colors duration-300">
+                        LensMingle 📷
                       </h3>
                       <a 
                         href="https://devpost.com/software/lensmingle-app" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-[#4DD0E1] hover:text-[#64FFDA] transition-colors duration-300"
+                        className="text-purple-500 hover:text-pink-500 transition-colors duration-300 hover-bounce"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
+                        <span className="text-2xl">🔗</span>
                       </a>
-                      <span className="text-sm text-gray-400">April 2024</span>
+                      <span className="text-sm text-gray-600 bg-purple-100 px-3 py-1 rounded-full">
+                        April 2024 🌺
+                      </span>
                     </div>
                     
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      Your Gateway to Perfect Photography Partnerships! 
-                      Connect with talented photographers or find your ideal clients. A smart recommendation engine pairs you 
-                      with the perfect match based on style, budget, and vision. Get ready to transform 
-                      the way you connect in the photography world! 
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      Your Gateway to Perfect Photography Partnerships! 💫 
+                      Connect talented photographers with ideal clients using smart recommendations 🎯 
+                      Match based on style, budget, and vision! 📸✨
                     </p>
 
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {['React', 'Python', 'SKLearn', 'XGBoost', 'Flask', 'Websockets', 'Node.js'].map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                          className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-pink-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
                         >
                           {tech}
                         </span>
@@ -372,44 +416,42 @@ const PortfolioWebsite = () => {
             </div>
 
             {/* PharmaTech Project */}
-            <div className="mt-8 bg-[#0D1117]/50 rounded-xl p-8 hover:bg-[#0D1117]/80 transition-all duration-300 border border-[#30363D]/50 hover:border-[#30363D] group animate-fade-in">
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
               <div className="flex flex-col md:flex-row gap-8">
-                {/* Project Image/Preview */}
-                <div className="md:w-1/2 relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                <div className="md:w-1/2 relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-pink-300 to-purple-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
                   <img 
                     src="/pharmatech.png" 
                     alt="PharmaTech Interface" 
-                    className="relative rounded-lg w-full h-[300px] object-cover shadow-xl"
+                    className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
                   />
-                  {/* Decorative elements */}
-                  <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#4DD0E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                  <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#64FFDA] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="absolute -top-3 -right-3 text-3xl bounce-cute">💊</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">🏥</div>
                 </div>
 
-                {/* Project Details */}
                 <div className="md:w-1/2 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-bold text-[#4DD0E1] group-hover:text-[#64FFDA] transition-colors duration-300">
-                        PharmaTech
+                      <h3 className="text-2xl font-bold text-pink-600 group-hover:text-purple-600 transition-colors duration-300">
+                        PharmaTech 💊
                       </h3>
-                      <span className="text-sm text-gray-400">January 2023</span>
+                      <span className="text-sm text-gray-600 bg-pink-100 px-3 py-1 rounded-full">
+                        January 2023 🌸
+                      </span>
                     </div>
                     
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      A modern pharmacy management solution!
-                      Never miss a prescription pickup with this intelligent notification system. Experience seamless 
-                      inventory tracking and real-time updates. Stay connected through SMS and email alerts for 
-                      exceptional pharmaceutical care.
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      A modern pharmacy management solution! 💫
+                      Never miss a prescription with intelligent notifications 📱 
+                      Seamless inventory tracking with real-time updates ⚡ 
+                      Exceptional pharmaceutical care! 💕
                     </p>
 
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {['Twilio API', 'MySQL', 'React', 'Flask', 'Jenkins', 'SendGrid API'].map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-[#1B2432] text-[#4DD0E1] text-sm rounded-full group-hover:bg-[#1F2937] transition-colors duration-300"
+                          className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
                         >
                           {tech}
                         </span>
