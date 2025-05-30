@@ -285,7 +285,7 @@ const PortfolioWebsite = () => {
           {/* Projects Section */}
           <section id="projects" className="mb-24">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 rainbow-bg bg-clip-text text-transparent">
+              <h2 className="text-5xl font-bold mb-4 text-pink-500">
                 Projects 🎨
               </h2>
             </div>
@@ -324,9 +324,11 @@ const PortfolioWebsite = () => {
                     </div>
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      Experience chess like never before with my AI-powered companion! 
-                      Features real-time analysis, instant move suggestions, and adaptive learning 
-                      Perfect for beginners and seasoned players alike! 🏆
+                      Experience chess like never before with the AI-powered chess companion. 
+                      Featuring real-time analysis, instant move suggestions, and an adaptive 
+                      learning system that grows with you. Whether you're a beginner or a 
+                      seasoned player, elevate your game with professional-grade insights 
+                      and lightning-fast responses. 🏆
                     </p>
 
                     <div className="flex flex-wrap gap-2">
@@ -379,8 +381,7 @@ const PortfolioWebsite = () => {
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
                       Your Gateway to Perfect Photography Partnerships!
-                      Connect talented photographers with ideal clients using smart recommendations  
-                      Match based on style, budget, and vision!
+                      Connect talented photographers with ideal clients using smart recommendations  and match based on style, budget, and vision!
                     </p>
 
                     <div className="flex flex-wrap gap-2">
@@ -425,9 +426,7 @@ const PortfolioWebsite = () => {
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
                       A modern pharmacy management solution! 
-                      Never miss a prescription with intelligent notifications  
-                      Seamless inventory tracking with real-time updates  
-                      Exceptional pharmaceutical care!⚡
+                      Never miss a prescription with intelligent notifications and seamless inventory tracking with real-time updates⚡
                     </p>
 
                     <div className="flex flex-wrap gap-2">
@@ -449,7 +448,7 @@ const PortfolioWebsite = () => {
           {/* Contact Section */}
           <section id="contact" className="mb-24 px-4 md:px-8 animate-bounce-in-left">
             <div className="max-w-4xl mx-auto"></div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#4DD0E1] to-[#64FFDA] bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-4 text-pink-500">
                 Get In Touch
               </h2>
             <div className="bg-[#0D1117]/50 rounded-2xl p-8 md:p-12 hover:bg-[#0D1117]/70 transition-all duration-300 border border-2 border-[#30363D]/50 hover:border-[#4DD0E1]/50 shadow-xl hover:shadow-2xl group animate-fade-in">
