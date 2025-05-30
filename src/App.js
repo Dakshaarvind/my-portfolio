@@ -290,6 +290,58 @@ const PortfolioWebsite = () => {
               </h2>
             </div>
             
+            {/* StartNOW */}
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 mb-8 hover-bounce">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/2 relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-pink-300 to-purple-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+                  <img 
+                    src="/Screenshot 2025-05-25 215311.png" 
+                    alt="StartNOW Interface" 
+                    className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
+                  />
+                  <div className="absolute -top-3 -right-3 text-3xl bounce-cute">🌱</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">📊</div>
+                </div>
+                
+                <div className="md:w-1/2 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold text-pink-600 group-hover:text-purple-600 transition-colors duration-300">
+                        StartNOW 💡
+                      </h3>
+                      <a 
+                        href="https://devpost.com/software/startnow" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-pink-500 hover:text-purple-500 transition-colors duration-300 hover-bounce"
+                      >
+                        <span className="text-2xl">🔗</span>
+                      </a>
+                      <span className="text-sm text-gray-600 bg-pink-100 px-3 py-1 rounded-full">
+                        April 2025
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      Pitch your startup idea and watch your agentic board brainstorm. Featuring the Unpaid Intern, CTO, etc… all working hard to give you infinite possibilities on what steps to take next! Be it Buisness plans, pitch decks for investors or marketing strategies, watch this product build it all for you.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {['Uagents', 'AgentVerse', 'Hackathon WINNER'].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* AI Chess Bot */}
             <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 mb-8 hover-bounce">
               <div className="flex flex-col md:flex-row gap-8">
