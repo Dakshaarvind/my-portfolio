@@ -288,11 +288,6 @@ const PortfolioWebsite = () => {
               <h2 className="text-4xl font-bold mb-4 rainbow-bg bg-clip-text text-transparent">
                 Projects 🎨
               </h2>
-              <div className="flex justify-center gap-2">
-                <span className="text-2xl bounce-cute">🎯</span>
-                <span className="text-2xl wiggle">💡</span>
-                <span className="text-2xl heart-beat">🚀</span>
-              </div>
             </div>
             
             {/* AI Chess Bot */}
@@ -324,13 +319,13 @@ const PortfolioWebsite = () => {
                         <span className="text-2xl">🔗</span>
                       </a>
                       <span className="text-sm text-gray-600 bg-pink-100 px-3 py-1 rounded-full">
-                        June 2024 🌸
+                        June 2024 
                       </span>
                     </div>
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      Experience chess like never before with my AI-powered companion! ✨ 
-                      Features real-time analysis, instant move suggestions, and adaptive learning 🧠 
+                      Experience chess like never before with my AI-powered companion! 
+                      Features real-time analysis, instant move suggestions, and adaptive learning 
                       Perfect for beginners and seasoned players alike! 🏆
                     </p>
 
@@ -360,7 +355,7 @@ const PortfolioWebsite = () => {
                     className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
                   />
                   <div className="absolute -top-3 -right-3 text-3xl bounce-cute">📸</div>
-                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">💕</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">👩‍💻</div>
                 </div>
 
                 <div className="md:w-1/2 flex flex-col justify-between">
@@ -378,14 +373,14 @@ const PortfolioWebsite = () => {
                         <span className="text-2xl">🔗</span>
                       </a>
                       <span className="text-sm text-gray-600 bg-purple-100 px-3 py-1 rounded-full">
-                        April 2024 🌺
+                        April 2024 
                       </span>
                     </div>
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      Your Gateway to Perfect Photography Partnerships! 💫 
-                      Connect talented photographers with ideal clients using smart recommendations 🎯 
-                      Match based on style, budget, and vision! 📸✨
+                      Your Gateway to Perfect Photography Partnerships!
+                      Connect talented photographers with ideal clients using smart recommendations  
+                      Match based on style, budget, and vision!
                     </p>
 
                     <div className="flex flex-wrap gap-2">
@@ -424,15 +419,15 @@ const PortfolioWebsite = () => {
                         PharmaTech 💊
                       </h3>
                       <span className="text-sm text-gray-600 bg-pink-100 px-3 py-1 rounded-full">
-                        January 2023 🌸
+                        January 2023 
                       </span>
                     </div>
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      A modern pharmacy management solution! 💫
-                      Never miss a prescription with intelligent notifications 📱 
-                      Seamless inventory tracking with real-time updates ⚡ 
-                      Exceptional pharmaceutical care! 💕
+                      A modern pharmacy management solution! 
+                      Never miss a prescription with intelligent notifications  
+                      Seamless inventory tracking with real-time updates  
+                      Exceptional pharmaceutical care!⚡
                     </p>
 
                     <div className="flex flex-wrap gap-2">
