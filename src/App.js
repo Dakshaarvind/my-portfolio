@@ -219,7 +219,6 @@ const PortfolioWebsite = () => {
               <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🌳</span>
                     <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full">2024</span>
                   </div>
                   <div className="text-right">
@@ -233,7 +232,7 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Developed a dynamic reporting system that streamlined data processing ✨ Architected scalable microservices for real-time notifications 🚀 Refactored API endpoints for optimal performance 💪 Focused on backend optimization for better scalability! 📈
+                  Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience. Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness. Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges. Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance. 📈
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -266,7 +265,7 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Contributed to K-12 computer science tutoring programs 📚 Organized programming events with amazing volunteer teams 🎉 Hosted inspiring guest speaker events 🎤 Building community and empowering the next generation! 💕
+                  Contributed to outreach initiatives by volunteering for K-12 computer science tutoring programs, helping high school students explore technology and programming. Organized and managed volunteer teams for large-scale programming events, ensuring seamless coordination and participant engagement. Hosted guest speaker events featuring industry professionals, fostering opportunities for learning and networking within the community.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
