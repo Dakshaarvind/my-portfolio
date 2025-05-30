@@ -112,10 +112,9 @@ const PortfolioWebsite = () => {
       {/* Cute floating elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 text-6xl float text-pink-300">🌸</div>
-        <div className="absolute top-40 right-20 text-4xl bounce-cute text-purple-300">💖</div>
+        <div className="absolute top-40 right-20 text-4xl bounce-cute text-purple-300">🌸</div>
         <div className="absolute bottom-20 left-20 text-5xl wiggle text-pink-400">🦋</div>
         <div className="absolute bottom-40 right-10 text-3xl float text-purple-400">⭐</div>
-        <div className="absolute top-1/3 left-1/4 text-2xl heart-beat text-pink-500">💕</div>
         <div className="absolute top-2/3 right-1/4 text-4xl bounce-cute text-purple-500">🌙</div>
         
         
@@ -162,7 +161,7 @@ const PortfolioWebsite = () => {
                 />
                 {/* Cute decorative elements around image */}
                 <div className="absolute -top-4 -right-4 text-3xl bounce-cute">🌟</div>
-                <div className="absolute -bottom-4 -left-4 text-2xl wiggle">🎈</div>
+                <div className="absolute -bottom-4 -left-4 text-2xl wiggle">🌸</div>
               </div>
             </div>
 
@@ -188,7 +187,6 @@ const PortfolioWebsite = () => {
               {/* Cute call to action */}
               <div className="mt-6 flex items-center gap-2">
                 <span className="text-pink-500 font-semibold">Let's create something amazing together!</span>
-                <span className="text-2xl bounce-cute">🚀</span>
               </div>
             </div>
           </div>
@@ -204,7 +202,7 @@ const PortfolioWebsite = () => {
               <div className="flex justify-center gap-2">
                 <span className="text-2xl bounce-cute">💼</span>
                 <span className="text-2xl wiggle">🌟</span>
-                <span className="text-2xl heart-beat">💖</span>
+                <span className="text-2xl heart-beat">🌸</span>
               </div>
             </div>
             
