@@ -184,10 +184,6 @@ const PortfolioWebsite = () => {
                 I'm constantly learning & building with a focus on impact, design, and security.🌟
               </p>
               
-              {/* Cute call to action */}
-              <div className="mt-6 flex items-center gap-2">
-                <span className="text-pink-500 font-semibold">Let's create something amazing together!</span>
-              </div>
             </div>
           </div>
         </header>
@@ -196,14 +192,9 @@ const PortfolioWebsite = () => {
           {/* Experience Section */}
           <section id="experience" className="mb-24">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 rainbow-bg bg-clip-text text-transparent">
-                Experience ✨
+              <h2 className="text-5xl font-bold mb-4 text-pink-500">
+                My Experience 💼
               </h2>
-              <div className="flex justify-center gap-2">
-                <span className="text-2xl bounce-cute">💼</span>
-                <span className="text-2xl wiggle">🌟</span>
-                <span className="text-2xl heart-beat">🌸</span>
-              </div>
             </div>
             
             <div className="space-y-8">
@@ -211,14 +202,13 @@ const PortfolioWebsite = () => {
               <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">🏖️</span>
                     <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left">
                     <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
                       Web & Tech Manager · Beach Media 🌊
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 self-start">
                       <span>📍</span> Long Beach, California
                     </p>
                   </div>
