@@ -204,11 +204,11 @@ const PortfolioWebsite = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                  <div classNmae="text-left">
+                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300 text-left">
                       Web & Tech Manager · Beach Media 🌊
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1 self-start">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 text-left">
                       <span>📍</span> Long Beach, California
                     </p>
                   </div>
