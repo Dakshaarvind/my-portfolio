@@ -213,6 +213,20 @@ const PortfolioWebsite = () => {
                     </p>
                   </div>
                 </div>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience. Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness. Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges. Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance. 📈
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React.js', 'Express.js', 'MongoDB', 'Kafka', 'GraphQL', 'Docker', 'Jenkins', 'Redis'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
               </div>
               
               {/* Kalpavruksha Experience */}
