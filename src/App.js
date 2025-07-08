@@ -214,10 +214,10 @@ const PortfolioWebsite = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience. Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness. Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges. Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance. 📈
+                  Developed a style-aware ad-placement engine using React and the Google Ad Manager API, enabling real-time CSS analysis to dynamically match ad creatives with the visual design of each page. This approach preserved site performance and improved the overall aesthetic cohesion of ad placements. Additionally, collaborated closely with cross-functional teams, including marketing, events, and brand partnerships to communicate technical concepts clearly, align on shared goals, and support the success of advertising initiatives.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React.js', 'Express.js', 'MongoDB', 'Kafka', 'GraphQL', 'Docker', 'Jenkins', 'Redis'].map((tech) => (
+                  {['Lighthouse audits', 'Frontend architecture', 'DOM / CSS parsing', 'Web performance optimization', 'Programmatic advertising'].map((tech) => (
                     <span
                       key={tech}
                       className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
