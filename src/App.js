@@ -37,6 +37,38 @@ const PortfolioWebsite = () => {
     generateSparkles();
   }, []);
 
+  // Replace scrapbookNotes with your image-based notes and improved positions:
+  const scrapbookNotes = [
+    {
+      img: "/scrapbook-stem.png",
+      alt: "STEM Mentor: Inspired girls in STEM",
+      style: {
+        top: "32px", left: "-120px", // left side, upper
+        width: "120px", height: "120px", zIndex: 30,
+        animation: "floatScrap0 7s ease-in-out infinite alternate",
+      }
+    },
+    {
+      img: "/scrapbook-bmes.png",
+      alt: "BMES Webmaster: Built & maintained the Biomedical Engineering Society website.",
+      style: {
+        top: "50%", left: "-110px", // left side, middle
+        width: "110px", height: "110px", zIndex: 30,
+        transform: "translateY(-50%)",
+        animation: "floatScrap1 8s ease-in-out infinite alternate",
+      }
+    },
+    {
+      img: "/scrapbook-creative.png",
+      alt: "Creative Coding: Designed interactive art & mini-games for campus events.",
+      style: {
+        bottom: "32px", right: "-120px", // right side, lower
+        width: "120px", height: "120px", zIndex: 30,
+        animation: "floatScrap2 6s ease-in-out infinite alternate",
+      }
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-pink-200 text-gray-800 relative overflow-hidden">
       {/* Custom Styles */}
@@ -293,6 +325,48 @@ const PortfolioWebsite = () => {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="relative">
+              {/* Scrapbook floating images - desktop only */}
+              {scrapbookNotes.map((note, i) => (
+                <img
+                  key={i}
+                  src="/Web_Master.png"
+                  alt="BMES"
+                  className="hidden md:block absolute scrapbook-img pointer-events-none select-none"
+                  style={note.style}
+                  draggable={false}
+                />
+              ))}
+              {/* ...the rest of experience cards... */}
+              <style jsx>{`
+                @keyframes floatScrap0 {
+                  0% { transform: translateY(0);}
+                  100% { transform: translateY(-18px);}
+                }
+                @keyframes floatScrap1 {
+                  0% { transform: translateY(-50%) scale(1);}
+                  100% { transform: translateY(-60%) scale(1.05);}
+                }
+                @keyframes floatScrap2 {
+                  0% { transform: translateY(0);}
+                  100% { transform: translateY(16px);}
+                }
+                .scrapbook-img {
+                  filter: drop-shadow(0 4px 16px #f9a8d4cc);
+                  transition: filter 0.3s;
+                  user-select: none;
+                }
+                .scrapbook-img:hover {
+                  filter: drop-shadow(0 8px 32px #a78bfaee) brightness(1.1);
+                }
+                @media (max-width: 1024px) {
+                  .scrapbook-img {
+                    display: none !important;
+                  }
+                }
+              `}</style>
             </div>
           </section>
 
