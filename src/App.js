@@ -238,7 +238,7 @@ const PortfolioWebsite = () => {
                   </div>
                   <div classNmae="text-left">
                     <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300 text-left">
-                      Web & Tech Manager · Beach Media 🌊
+                      Software Engineer Intern · Beach Media 🌊
                     </h3>
                     <p className="text-gray-600 text-sm flex items-center gap-1 text-left">
                       <span>📍</span> Long Beach, California
