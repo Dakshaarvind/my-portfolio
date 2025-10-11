@@ -230,6 +230,36 @@ const PortfolioWebsite = () => {
             </div>
             
             <div className="space-y-8">
+              {/* Software Engineer Intern · Fetch.ai Experience (moved to top) */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-2">
+                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full">2025</span>
+                  </div>
+                  <div className="text-right">
+                    <h3 className="text-purple-600 text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
+                      Software Engineer Intern · Fetch.ai
+                    </h3>
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                      <span>📍</span>   San Francisco, USA
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  Building AI Agents to help fulfill marketing & content creation needs for small businesses.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['AI Agents', 'LangGraph'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-pink-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               {/* Beach Media Experience */}
               <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
@@ -293,11 +323,37 @@ const PortfolioWebsite = () => {
                 </div>
               </div>
 
+              {/* President · Women in Computing Experience */}
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-2">
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
+                  </div>
+                  <div className="text-right">
+                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                      President · Women in Computing 🌟
+                    </h3>
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                      <span>📍</span> Long Beach, California
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  - Led a multidisciplinary executive board and oversaw all club operations, initiatives, and events promoting inclusivity and representation in tech.
+                  <br />
+                  - Organized and directed WiC’s annual hackathon, managing logistics, sponsorships, volunteer coordination, and technical committee programs.
+                  <br />
+                  - Fostered partnerships with tech companies, startups, and university departments to provide members with mentorship, internships, and learning opportunities.
+                  <br />
+                  - Took initiative in launching new programs that encouraged student engagement, leadership development, and collaboration across computing-related organizations.
+                </p>
+              </div>
+
               {/* Women in Computing Experience */}
               <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">👩‍💻</span>
+                    
                     <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2024</span>
                   </div>
                   <div className="text-right">
@@ -325,6 +381,8 @@ const PortfolioWebsite = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Fetch.ai Experience removed */}
             </div>
 
             <div className="relative">
