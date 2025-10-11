@@ -276,7 +276,11 @@ const PortfolioWebsite = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Developed a style-aware ad-placement engine using React and the Google Ad Manager API, enabling real-time CSS analysis to dynamically match ad creatives with the visual design of each page. This approach preserved site performance and improved the overall aesthetic cohesion of ad placements. Additionally, collaborated closely with cross-functional teams, including marketing, events, and brand partnerships to communicate technical concepts clearly, align on shared goals, and support the success of advertising initiatives.
+                  - Developed a style-aware ad-placement engine using React and the Google Ad Manager API, enabling real-time CSS analysis to dynamically match ad creatives with the visual design of each page.
+                  <br /> 
+                  - This approach preserved site performance and improved the overall aesthetic cohesion of ad placements. 
+                  <br />
+                  - Additionally, collaborated closely with cross-functional teams, including marketing, events, and brand partnerships to communicate technical concepts clearly, align on shared goals, and support the success of advertising initiatives.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['Lighthouse audits', 'Frontend architecture', 'DOM / CSS parsing', 'Web performance optimization', 'Programmatic advertising'].map((tech) => (
