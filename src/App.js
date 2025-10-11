@@ -312,7 +312,13 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience. Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness. Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges. Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance. 📈
+                  - Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience.
+                  <br />
+                  - Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness.
+                  <br />
+                  - Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges.
+                  <br />
+                  - Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
