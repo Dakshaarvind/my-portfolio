@@ -377,7 +377,11 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  Contributed to outreach initiatives by volunteering for K-12 computer science tutoring programs, helping high school students explore technology and programming. Organized and managed volunteer teams for large-scale programming events, ensuring seamless coordination and participant engagement. Hosted guest speaker events featuring industry professionals, fostering opportunities for learning and networking within the community.
+                  - Contributed to outreach initiatives by volunteering for K-12 computer science tutoring programs, helping high school students explore technology and programming.
+                  <br />
+                  - Organized and managed volunteer teams for large-scale programming events, ensuring seamless coordination and participant engagement.
+                  <br />
+                  - Hosted guest speaker events featuring industry professionals, fostering opportunities for learning and networking within the community.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
