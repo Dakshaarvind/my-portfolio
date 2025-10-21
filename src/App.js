@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const PortfolioWebsite = () => {
   const [sparkles, setSparkles] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const links = document.querySelectorAll('nav a[href^="#"]');
@@ -141,8 +142,8 @@ const PortfolioWebsite = () => {
         </div>
       ))}
 
-      {/* Cute floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Cute floating elements - hidden on mobile to reduce clutter */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <div className="absolute top-20 left-10 text-6xl float text-pink-300">🌸</div>
         <div className="absolute top-40 right-20 text-4xl bounce-cute text-purple-300">🌸</div>
         <div className="absolute bottom-20 left-20 text-5xl wiggle text-pink-400">🦋</div>
@@ -155,51 +156,90 @@ const PortfolioWebsite = () => {
         <div className="absolute bottom-10 left-1/3 text-purple-400 animate-bounce">💜</div>
       </div>
 
-      {/* Navigation with cute styling */}
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-lg z-50 rounded-full px-8 py-3 border-2 border-pink-200 shadow-lg shadow-pink-200/50">
-        <div className="flex items-center gap-8">
-          {[
-            { name: '🏠 Home', href: '#home' },
-            { name: '💼 Experience', href: '#experience' },
-            { name: '🎨 Projects', href: '#projects' },
-            { name: '💌 Contact', href: '#contact' }
-          ].map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="relative group py-2 px-4 rounded-full hover:bg-pink-100 transition-all duration-300 hover-bounce"
-            >
-              <span className="text-gray-700 hover:text-pink-600 transition-colors duration-300 font-semibold">
-                {item.name}
-              </span>
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full group-hover:w-full transition-all duration-300"></span>
-            </a>
-          ))}
+      {/* Navigation with mobile-friendly design */}
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-sm px-4 md:max-w-none md:px-0">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex bg-white/80 backdrop-blur-lg rounded-full px-8 py-3 border-2 border-pink-200 shadow-lg shadow-pink-200/50">
+          <div className="flex items-center gap-8">
+            {[
+              { name: '🏠 Home', href: '#home' },
+              { name: '💼 Experience', href: '#experience' },
+              { name: '🎨 Projects', href: '#projects' },
+              { name: '💌 Contact', href: '#contact' }
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="relative group py-2 px-4 rounded-full hover:bg-pink-100 transition-all duration-300 hover-bounce"
+              >
+                <span className="text-gray-700 hover:text-pink-600 transition-colors duration-300 font-semibold">
+                  {item.name}
+                </span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full group-hover:w-full transition-all duration-300"></span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="bg-white/90 backdrop-blur-lg p-3 rounded-full border-2 border-pink-200 shadow-lg shadow-pink-200/50 hover:bg-pink-50 transition-all duration-300"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span className={`bg-pink-500 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+              <span className={`bg-pink-500 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`bg-pink-500 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+            </div>
+          </button>
+
+          {/* Mobile menu dropdown */}
+          <div className={`absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-lg rounded-2xl border-2 border-pink-200 shadow-lg shadow-pink-200/50 transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
+            <div className="p-4 space-y-2">
+              {[
+                { name: '🏠 Home', href: '#home' },
+                { name: '💼 Experience', href: '#experience' },
+                { name: '🎨 Projects', href: '#projects' },
+                { name: '💌 Contact', href: '#contact' }
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block py-3 px-4 rounded-xl hover:bg-pink-100 transition-all duration-300 hover-bounce text-gray-700 hover:text-pink-600 font-semibold"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </nav>
 
-      <div className="pt-20">
+      <div className="pt-20 md:pt-20">
         {/* Hero Section */}
         <header id="home" className="py-16 relative">
-          <div className="max-w-4xl mx-auto flex items-center gap-8 px-4">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 px-4">
             {/* Profile Image with cute effects */}
-            <div className="relative group">
+            <div className="relative group order-1 md:order-1">
               <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
               <div className="relative">
                 <img 
                   src="/Screenshot 2025-05-29 160937.png" 
                   alt="Profile" 
-                  className="relative w-72 h-72 object-cover rounded-full shadow-2xl border-4 border-white hover:scale-105 transition-all duration-300 float" 
+                  className="relative w-48 h-48 md:w-72 md:h-72 object-cover rounded-full shadow-2xl border-4 border-white hover:scale-105 transition-all duration-300 float" 
                 />
                 {/* Cute decorative elements around image */}
-                <div className="absolute -top-4 -right-4 text-3xl bounce-cute">🌟</div>
-                <div className="absolute -bottom-4 -left-4 text-2xl wiggle">🌸</div>
+                <div className="absolute -top-4 -right-4 text-2xl md:text-3xl bounce-cute">🌟</div>
+                <div className="absolute -bottom-4 -left-4 text-xl md:text-2xl wiggle">🌸</div>
               </div>
             </div>
 
-            <div className="text-left">
+            <div className="text-center md:text-left order-2 md:order-2">
               {/* Cute animated greeting */}
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
                 
                 <div className="flex gap-1">
                   <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce"></div>
@@ -208,10 +248,10 @@ const PortfolioWebsite = () => {
                 </div>
               </div>
 
-              <h1 className="text-5xl font-bold mb-4 text-pink-500">
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-pink-500">
                 Hi, I'm Daksha! ✨
               </h1>
-              <p className="text-lg text-gray-600">
+              <p className="text-base md:text-lg text-gray-600 max-w-lg">
                 I craft engaging digital experiences that blend creativity with clean, functional code.
                 I'm constantly learning & building with a focus on impact, design, and security.🌟
               </p>
@@ -231,16 +271,16 @@ const PortfolioWebsite = () => {
             
             <div className="space-y-8">
               {/* Software Engineer Intern · Fetch.ai Experience (moved to top) */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full">2025</span>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                  <div className="flex items-center gap-2 order-2 md:order-1">
+                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full text-sm">2025</span>
                   </div>
-                  <div className="text-right">
-                    <h3 className="text-purple-600 text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
+                  <div className="text-left md:text-right order-1 md:order-2">
+                    <h3 className="text-purple-600 text-lg md:text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
                       Software Engineer Intern · Fetch.ai
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 justify-start md:justify-end">
                       <span>📍</span>   San Francisco, USA
                     </p>
                   </div>
@@ -261,16 +301,16 @@ const PortfolioWebsite = () => {
               </div>
 
               {/* Beach Media Experience */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                  <div className="flex items-center gap-2 order-2 md:order-1">
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full text-sm">2025</span>
                   </div>
-                  <div classNmae="text-left">
-                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300 text-left">
+                  <div className="text-left md:text-left order-1 md:order-2">
+                    <h3 className="text-pink-600 text-lg md:text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
                       Software Engineer Intern · Beach Media 🌊
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1 text-left">
+                    <p className="text-gray-600 text-sm flex items-center gap-1">
                       <span>📍</span> Long Beach, California
                     </p>
                   </div>
@@ -296,16 +336,16 @@ const PortfolioWebsite = () => {
               </div>
               
               {/* Kalpavruksha Experience */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full">2024</span>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                  <div className="flex items-center gap-2 order-2 md:order-1">
+                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full text-sm">2024</span>
                   </div>
-                  <div className="text-right">
-                    <h3 className="text-purple-600 text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
+                  <div className="text-left md:text-right order-1 md:order-2">
+                    <h3 className="text-purple-600 text-lg md:text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
                       Software Engineer Intern · Kalpavruksha Inc 💻
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 justify-start md:justify-end">
                       <span>📍</span> Bangalore, India
                     </p>
                   </div>
@@ -334,16 +374,16 @@ const PortfolioWebsite = () => {
               </div>
 
               {/* President · Women in Computing Experience */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2025</span>
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                  <div className="flex items-center gap-2 order-2 md:order-1">
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full text-sm">2025</span>
                   </div>
-                  <div className="text-right">
-                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                  <div className="text-left md:text-right order-1 md:order-2">
+                    <h3 className="text-pink-600 text-lg md:text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
                       President · Women in Computing 🌟
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 justify-start md:justify-end">
                       <span>📍</span> Long Beach, California
                     </p>
                   </div>
@@ -360,17 +400,17 @@ const PortfolioWebsite = () => {
               </div>
 
               {/* Women in Computing Experience */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-2">
+              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
+                  <div className="flex items-center gap-2 order-2 md:order-1">
                     
-                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full">2024</span>
+                    <span className="text-pink-600 font-semibold bg-pink-100 px-3 py-1 rounded-full text-sm">2024</span>
                   </div>
-                  <div className="text-right">
-                    <h3 className="text-pink-600 text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                  <div className="text-left md:text-right order-1 md:order-2">
+                    <h3 className="text-pink-600 text-lg md:text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
                       Event Coordinator · Women in Computing 🌟
                     </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1">
+                    <p className="text-gray-600 text-sm flex items-center gap-1 justify-start md:justify-end">
                       <span>📍</span> Long Beach, California
                     </p>
                   </div>
@@ -659,62 +699,62 @@ const PortfolioWebsite = () => {
 
           {/* Contact Section */}
           <section id="contact" className="mb-24 px-4 md:px-8 animate-bounce-in-left">
-            <div className="max-w-4xl mx-auto"></div>
-              <h2 className="text-3xl font-bold mb-4 text-pink-500">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-pink-500 text-center">
                 Get In Touch
               </h2>
-            <div className="bg-white/80 rounded-2xl p-8 md:p-12 hover:bg-pink-50 transition-all duration-300 border border-2 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl group animate-fade-in">
-              <div className="flex flex-col items-center space-y-6"></div>
-                <p className="text-pink-500 font-bold text-lg text-center max-w-xl mx-auto mb-6">
-                  I'm always open to exciting opportunities, collaborations, or just a friendly chat. Feel free to reach out!
-                </p>
+              <div className="bg-white/80 rounded-2xl p-6 md:p-12 hover:bg-pink-50 transition-all duration-300 border border-2 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl group animate-fade-in">
+                <div className="flex flex-col items-center space-y-6">
+                  <p className="text-pink-500 font-bold text-lg text-center max-w-xl mx-auto mb-6">
+                    I'm always open to exciting opportunities, collaborations, or just a friendly chat. Feel free to reach out!
+                  </p>
 
-              <div className="flex justify-center gap-6">
-                <a 
-                  href="https://www.linkedin.com/in/daksha-arvind-4260bb221/" 
-                  className="text-pink-500 hover:text-purple-600 transition-colors duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg
-                    className="w-8 h-8"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="https://github.com/Dakshaarvind" 
-                  className="text-pink-500 hover:text-purple-600 transition-colors duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg
-                    className="w-8 h-8"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="mailto:dakshabarvind@gmail.com" 
-                  className="flex items-center gap-2 text-pink-500 hover:text-purple-500 transition-colors duration-300 text-lg font-semibold"
-                >
-                  <svg 
-                    className="w-7 h-7"
-                    fill="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M3 4c-.825 0-1.487.672-1.487 1.5L1.5 18.5c0 .825.672 1.5 1.5 1.5h18c.825 0 1.5-.675 1.5-1.5V5.5c0-.828-.675-1.5-1.5-1.5H3zm0 2h18v.5l-9 5.625L3 6.5V6zm0 2.334 6.96 4.416a2.248 2.248 0 0 0 2.08 0L21 8.334V18H3V8.334z"/>
-                  </svg>
-                  </a>
+                  <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
+                    <a 
+                      href="https://www.linkedin.com/in/daksha-arvind-4260bb221/" 
+                      className="text-pink-500 hover:text-purple-600 transition-colors duration-300 p-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        className="w-6 h-6 md:w-8 md:h-8"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href="https://github.com/Dakshaarvind" 
+                      className="text-pink-500 hover:text-purple-600 transition-colors duration-300 p-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        className="w-6 h-6 md:w-8 md:h-8"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href="mailto:dakshabarvind@gmail.com" 
+                      className="flex items-center gap-2 text-pink-500 hover:text-purple-500 transition-colors duration-300 text-base md:text-lg font-semibold p-2"
+                    >
+                      <svg 
+                        className="w-5 h-5 md:w-7 md:h-7"
+                        fill="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M3 4c-.825 0-1.487.672-1.487 1.5L1.5 18.5c0 .825.672 1.5 1.5 1.5h18c.825 0 1.5-.675 1.5-1.5V5.5c0-.828-.675-1.5-1.5-1.5H3zm0 2h18v.5l-9 5.625L3 6.5V6zm0 2.334 6.96 4.416a2.248 2.248 0 0 0 2.08 0L21 8.334V18H3V8.334z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
-
             </div>
           </section>
         </main>
