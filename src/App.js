@@ -560,8 +560,16 @@ const PortfolioWebsite = () => {
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <h3 className="text-2xl font-bold text-purple-600 group-hover:text-pink-600 transition-colors duration-300">
-                        Real Estate Data Intelligence Dashboard
+                        Real Estate Data Intelligence Dashboard 🏠
                       </h3>
+                      <a 
+                        href="https://github.com/Dakshaarvind/Real-estate-Data-Analysis" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-purple-500 hover:text-pink-500 transition-colors duration-300 hover-bounce"
+                      >
+                        <span className="text-2xl">🔗</span>
+                      </a>
                       <span className="text-sm text-gray-600 bg-purple-100 px-3 py-1 rounded-full">
                         Nov 2025
                       </span>
