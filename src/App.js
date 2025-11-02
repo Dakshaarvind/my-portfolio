@@ -502,6 +502,63 @@ const PortfolioWebsite = () => {
               </div>
             </div>
 
+            {/* Real Estate Analyzer */}
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 mb-8 hover-bounce">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/2 relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-300 to-pink-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
+                  <img 
+                    src="/real-estate.png" 
+                    alt="Real Estate Analyzer Dashboard" 
+                    className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
+                  />
+                  <div className="absolute -top-3 -right-3 text-3xl bounce-cute">📊</div>
+                  <div className="absolute -bottom-3 -left-3 text-2xl wiggle">🏘️</div>
+                </div>
+                
+                <div className="md:w-1/2 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold text-purple-600 group-hover:text-pink-600 transition-colors duration-300">
+                        Real Estate Data Intelligence Dashboard
+                      </h3>
+                      <span className="text-sm text-gray-600 bg-purple-100 px-3 py-1 rounded-full">
+                        2000-2020
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      Engineered a comprehensive data analytics system analyzing 20 years of real estate market data. Features ETL pipelines, statistical modeling, and interactive visualizations for deep market insights.
+                    </p>
+
+                    <div className="mb-4">
+                      <h4 className="text-purple-600 font-semibold mb-2">Key Highlights:</h4>
+                      <ul className="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Built modular Python analytics framework handling 1M+ row datasets</li>
+                        <li>Implemented predictive trend modeling for valuation forecasting</li>
+                        <li>Automated cloud-based visualization pipelines (AWS S3 + Tableau)</li>
+                        <li>Applied data engineering best practices with clean architecture</li>
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        'Python', 'NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Tableau',
+                        'AWS S3', 'SQL', 'ETL', 'Scikit-learn', 'JupyterLab'
+                      ].map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* AI Chess Bot */}
             <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 mb-8 hover-bounce">
               <div className="flex flex-col md:flex-row gap-8">
