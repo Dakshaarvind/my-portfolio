@@ -548,8 +548,8 @@ const PortfolioWebsite = () => {
                 <div className="md:w-1/2 relative">
                   <div className="absolute -inset-2 bg-gradient-to-r from-purple-300 to-pink-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-all duration-500"></div>
                   <img 
-                    src="/real-estate.png" 
-                    alt="Real Estate Analyzer Dashboard" 
+                    src="/Stats-RE.png" 
+                    alt="Real Estate Analyzer Dashboard 📊" 
                     className="relative rounded-2xl w-full h-[300px] object-cover shadow-lg border-2 border-white"
                   />
                   <div className="absolute -top-3 -right-3 text-3xl bounce-cute">📊</div>
@@ -563,7 +563,7 @@ const PortfolioWebsite = () => {
                         Real Estate Data Intelligence Dashboard
                       </h3>
                       <span className="text-sm text-gray-600 bg-purple-100 px-3 py-1 rounded-full">
-                        2000-2020
+                        Nov 2025
                       </span>
                     </div>
                     
@@ -571,20 +571,11 @@ const PortfolioWebsite = () => {
                       Engineered a comprehensive data analytics system analyzing 20 years of real estate market data. Features ETL pipelines, statistical modeling, and interactive visualizations for deep market insights.
                     </p>
 
-                    <div className="mb-4">
-                      <h4 className="text-purple-600 font-semibold mb-2">Key Highlights:</h4>
-                      <ul className="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Built modular Python analytics framework handling 1M+ row datasets</li>
-                        <li>Implemented predictive trend modeling for valuation forecasting</li>
-                        <li>Automated cloud-based visualization pipelines (AWS S3 + Tableau)</li>
-                        <li>Applied data engineering best practices with clean architecture</li>
-                      </ul>
-                    </div>
 
                     <div className="flex flex-wrap gap-2">
                       {[
-                        'Python', 'NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Tableau',
-                        'AWS S3', 'SQL', 'ETL', 'Scikit-learn', 'JupyterLab'
+                        'NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Tableau',
+                         'ETL', 'Scikit-learn'
                       ].map((tech) => (
                         <span
                           key={tech}
