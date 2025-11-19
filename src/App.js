@@ -334,44 +334,7 @@ const PortfolioWebsite = () => {
                 </div>
 
               </div>
-              
-              {/* Kalpavruksha Experience */}
-              <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-purple-200 hover:border-purple-300 group hover:shadow-xl hover:shadow-purple-200/50 hover-bounce">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
-                  <div className="flex items-center gap-2 order-2 md:order-1">
-                    <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full text-sm">2024</span>
-                  </div>
-                  <div className="text-left md:text-right order-1 md:order-2">
-                    <h3 className="text-purple-600 text-lg md:text-xl font-bold group-hover:text-pink-600 transition-colors duration-300">
-                      Software Engineer Intern · Kalpavruksha Inc 💻
-                    </h3>
-                    <p className="text-gray-600 text-sm flex items-center gap-1 justify-start md:justify-end">
-                      <span>📍</span> Bangalore, India
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  - Developed a dynamic reporting system that streamlined the process of retrieving, processing, and presenting complex data sets, ensuring a seamless user experience.
-                  <br />
-                  - Architected a scalable microservice system to handle real-time notifications and event-driven communication, enabling efficient handling of high-volume data processing and improved system responsiveness.
-                  <br />
-                  - Refactored outdated API endpoints by redesigning the data querying logic to minimize over-fetching and under-fetching, ensuring precise and efficient client-server data exchanges.
-                  <br />
-                  - Focused on optimizing backend workflows to improve scalability, maintainability, and overall system performance.
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {['React.js', 'Express.js', 'MongoDB', 'Kafka', 'GraphQL', 'Docker', 'Jenkins', 'Redis'].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-700 text-sm rounded-full hover:shadow-md transition-all duration-300 hover-bounce"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            
 
               {/* President · Women in Computing Experience */}
               <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-8 hover:bg-white/90 transition-all duration-300 border-2 border-pink-200 hover:border-pink-300 group hover:shadow-xl hover:shadow-pink-200/50 hover-bounce">
